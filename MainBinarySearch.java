@@ -17,9 +17,11 @@ public class MainBinarySearch {
 		System.out.println("Number of times array is rotated " + numberOfTimesArrayIsRotated(array2));
 		element = 9;
 		System.out.println("Element "+ element + " is found at " + searchingInNearlySortedRotated(array2, element));
-
-
-	}
+		
+		int array3[]= {1,2,3,4,6,7,8,9,10};
+		element = 5;
+		System.out.println("Floor of element " +  element+" is "+ floorElement(array3, element));
+		System.out.println("Ceil of element " +  element+" is "+ ceilElement(array3, element));	}
 	public static int binarySearch(int array[], int element) {
 		int start = 0;
 		int end = array.length - 1;
@@ -122,6 +124,42 @@ public class MainBinarySearch {
 			}
 		}
 		return -1;
+	}
+	
+	public static int floorElement(int array[], int element) {
+		int start = 0;
+		int end = array.length - 1;
+		int mid = (start + end)/2;
+		int result = -1;
+		while(start<=end) {
+			mid = (start + end)/2;
+			if(element < array[mid]) {
+				end = mid - 1;
+			}
+			else {
+				result = array[mid];
+				start = mid + 1;
+			}
+		}
+		return result;
+	}
+	public static int ceilElement(int array[], int element) {
+		int start = 0;
+		int end = array.length - 1;
+		int mid = (start + end)/2;
+		int result = -1;
+		while(start<=end) {
+			mid = (start + end)/2;
+			if(element < array[mid]) {
+				result = array[mid];
+				end = mid - 1;
+			}
+			else {
+				
+				start = mid + 1;
+			}
+		}
+		return result;
 	}
 
 }
