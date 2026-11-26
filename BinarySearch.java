@@ -112,10 +112,10 @@ public class BinarySearch {
         int mid = 0;
         while (l < r) {
             mid = (l + r) / 2;
-            if (nums[mid] > target) {
-                r = mid;
-            } else {
+            if (nums[mid] < target) {
                 l = mid + 1;
+            } else {
+                r = mid;
             }
 
         }
@@ -132,10 +132,11 @@ public class BinarySearch {
         int mid = 0;
         while (l < r) {
             mid = (l + r) / 2;
-            if (nums[mid] >= target) {
-                r = mid;
-            } else {
+            if (nums[mid] <= target) {
                 l = mid + 1;
+
+            } else {
+                r = mid;
             }
         }
         return l;
