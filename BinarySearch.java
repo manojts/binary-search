@@ -39,6 +39,13 @@ public class BinarySearch {
         result = firstGreaterThanEqualElement(nums, target);
 
         System.out.println("First Greater Than or Equal Element than target - Index: " + result);
+
+        nums = new int[] { 1, 2, 2, 2, 3, 5, 5, 5, 6, 10 };
+        target = 4;
+
+        result = searchInsert(nums, target);
+
+        System.out.println("Search Insert Position - Index: " + result);
     }
 
     public static int binarySearch(int[] nums, int target) {
@@ -140,5 +147,21 @@ public class BinarySearch {
             }
         }
         return l;
+    }
+
+    // Search Insert Position
+    public static int searchInsert(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        int mid = 0;
+        while (l < r) {
+            mid = l + (r - l) / 2;
+            if (nums[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return mid;
     }
 }
